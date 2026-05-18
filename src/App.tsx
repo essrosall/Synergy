@@ -85,7 +85,7 @@ function App() {
                         controls
                         playsInline
                         className="h-full w-full rounded-xl object-cover"
-                        src="/docs/TRASHURE.mp4"
+                        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
                       >
                         Your browser does not support the video tag.
                       </video>
