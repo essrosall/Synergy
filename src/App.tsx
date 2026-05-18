@@ -80,30 +80,27 @@ function App() {
                       <span className="text-xs font-medium">Replace with your actual video file</span>
                     </div>
 
-                    <div className="mx-auto flex max-w-xl flex-1 flex-col items-center justify-center text-center text-white">
-                      <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur">
-                        <div className="ml-1 h-0 w-0 border-y-[14px] border-y-transparent border-l-[22px] border-l-amber-400" />
-                      </div>
-                      <h2 className="mt-6 text-2xl font-extrabold tracking-tight sm:text-4xl">
-                        Demo video appears first
+                    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center text-center text-white">
+                      <video
+                        controls
+                        playsInline
+                        className="h-full w-full rounded-xl object-cover"
+                        src="/docs/TRASHURE.mp4"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                      <h2 className="mt-4 text-2xl font-extrabold tracking-tight sm:text-4xl">
+                        Demo video
                       </h2>
-                      <p className="mt-3 text-sm leading-6 text-white/78 sm:text-base">
-                        This section is built to be the first thing visitors see after scanning the QR code.
+                      <p className="mt-2 text-sm leading-6 text-white/78 sm:text-base">
+                        Play the demo to see the system in action.
                       </p>
                     </div>
 
-                    <div className="grid gap-3 text-sm text-white/84 sm:grid-cols-3">
-                      <div className="rounded-2xl border border-white/10 bg-white/10 p-3 backdrop-blur">
+                    <div className="mt-5 w-full">
+                      <div className="rounded-2xl border border-white/10 bg-white/10 p-3 text-sm backdrop-blur text-white/84">
                         <p className="font-semibold">Point allocation</p>
                         <p className="mt-1 text-white/72">Track recyclables and rewards.</p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-white/10 p-3 backdrop-blur">
-                        <p className="font-semibold">Mobile first</p>
-                        <p className="mt-1 text-white/72">Easy to scan and view on phones.</p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-white/10 p-3 backdrop-blur">
-                        <p className="font-semibold">Capstone ready</p>
-                        <p className="mt-1 text-white/72">Simple to publish and present.</p>
                       </div>
                     </div>
                   </div>
