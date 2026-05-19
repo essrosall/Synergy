@@ -141,7 +141,7 @@ function App() {
           </div>
         </div>
 
-        <section className="relative -mt-4 grid gap-3 pb-4 sm:-mt-8 sm:gap-5 sm:pb-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <section className="relative mt-6 grid gap-3 pb-4 sm:mt-8 sm:gap-5 sm:pb-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-[1.5rem] border border-white/10 bg-[#062e1f] p-3 text-white shadow-[0_18px_50px_rgba(9,44,39,0.18)] sm:rounded-[2rem] sm:p-6">
             <div className="flex items-end justify-between gap-4">
               <div>
