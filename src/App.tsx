@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
-const demoVideoSrc = `https://drive.google.com/uc?export=download&id=${demoVideoId}`;
+const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
 
 const manuals = [
   {
@@ -102,7 +102,7 @@ function App() {
                 <img src={logoSrc} alt="TRASHURE logo" className="h-full w-full object-contain" />
               </div>
 
-              <h1 className="mt-4 text-3xl font-black leading-[0.95] tracking-tight sm:mt-5 sm:text-6xl lg:text-7xl">
+              <h1 className="mt-4 text-3xl font-extrabold leading-[0.95] tracking-tight sm:mt-5 sm:text-6xl lg:text-7xl">
                 TRASHURE
               </h1>
               <p className="mx-auto mt-2 max-w-2xl text-sm font-medium leading-6 text-white/88 sm:mt-3 sm:text-lg sm:leading-7">
@@ -118,25 +118,21 @@ function App() {
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
                     <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] h-[360px] sm:h-[420px] lg:h-[460px]">
-                      <video
-                        className="h-full w-full bg-black object-contain"
-                        controls
-                        playsInline
-                        preload="metadata"
-                        controlsList="nodownload noplaybackrate"
-                        src={demoVideoSrc}
-                      >
-                        <source src={demoVideoSrc} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
+                      <iframe
+                        className="h-full w-full border-0 bg-black"
+                        src={demoVideoEmbedUrl}
+                        title="TRASHURE demo video"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
                     <div className="mt-3 flex flex-col items-center gap-2 sm:mt-4">
-                      <h2 className="text-lg font-extrabold tracking-tight sm:text-3xl">Watch the demo</h2>
+                      <h2 className="text-lg font-semibold tracking-tight sm:text-3xl">Watch the demo</h2>
                       <p className="max-w-xl text-sm leading-6 text-white/78 sm:text-base">
-                        A quick walkthrough of the workflow. The player keeps the controls under the frame so the video stays readable.
+                        A quick walkthrough of the workflow. The preview loads reliably in the browser and keeps the controls inside the player.
                       </p>
                       <a
-                        href={demoVideoSrc}
+                        href={demoVideoEmbedUrl}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition hover:bg-white/20"
@@ -156,7 +152,7 @@ function App() {
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300 sm:tracking-[0.28em]">Downloads</p>
-                <h3 className="mt-1 text-xl font-black tracking-tight text-white sm:mt-2 sm:text-2xl">Manuals</h3>
+                <h3 className="mt-1 text-xl font-bold tracking-tight text-white sm:mt-2 sm:text-2xl">Manuals</h3>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-white/76">
                   Keep the user and admin guides close at hand for setup, usage, and maintenance.
                 </p>
@@ -180,8 +176,8 @@ function App() {
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <div>
-                          <h4 className="font-bold tracking-tight text-white">{manual.title}</h4>
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-200 sm:text-xs">
+                          <h4 className="font-semibold tracking-tight text-white">{manual.title}</h4>
+                          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-emerald-200 sm:text-xs">
                             {manual.role}
                           </p>
                         </div>
@@ -189,7 +185,7 @@ function App() {
                           Download
                         </span>
                       </div>
-                      <p className="mt-1 text-sm leading-6 text-white/76">{manual.description}</p>
+                      <p className="mt-1 text-sm leading-6 text-white/72">{manual.description}</p>
                     </div>
                   </div>
                 </a>
@@ -201,7 +197,7 @@ function App() {
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300 sm:tracking-[0.28em]">Gallery</p>
-                <h3 className="mt-1 text-xl font-black tracking-tight text-white sm:mt-2 sm:text-2xl">Deployment photos</h3>
+                <h3 className="mt-1 text-xl font-bold tracking-tight text-white sm:mt-2 sm:text-2xl">Deployment photos</h3>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-white/76">
                   Browse the uploaded photos to preview the setup and deployment details.
                 </p>
@@ -253,8 +249,8 @@ function App() {
 
                 <div className="flex items-center justify-between gap-3 p-3 sm:gap-4 sm:p-4">
                   <div>
-                    <p className="font-black tracking-tight text-white">{visibleSlide.title}</p>
-                    <p className="mt-1 text-sm leading-6 text-white/76">{visibleSlide.caption}</p>
+                    <p className="font-semibold tracking-tight text-white">{visibleSlide.title}</p>
+                    <p className="mt-1 text-sm leading-6 text-white/72">{visibleSlide.caption}</p>
                   </div>
                   <div className="flex gap-2">
                     {gallery.map((_, index) => (
@@ -272,6 +268,13 @@ function App() {
             </div>
           </div>
         </section>
+
+        <footer className="mt-auto border-t border-white/10 px-2 py-4 text-center text-xs text-white/65 sm:px-4 sm:py-5">
+          <p className="font-medium tracking-[0.22em] uppercase text-white/55">TRASHURE</p>
+          <p className="mt-2 text-[11px] leading-5 text-white/55 sm:text-xs">
+            A simple waste verification demo for users and administrators.
+          </p>
+        </footer>
 
         {zoomedSlide !== null ? (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 px-3 py-4 backdrop-blur-sm sm:px-4 sm:py-6">
