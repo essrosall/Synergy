@@ -98,7 +98,7 @@ function App() {
 
           <div className="relative px-3 py-4 sm:px-8 sm:py-8">
             <div className="mx-auto max-w-3xl text-center">
-              <div className="mx-auto flex h-18 w-18 items-center justify-center overflow-hidden rounded-[1.5rem] border border-white/18 bg-white p-2 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:h-28 sm:w-28 sm:p-3">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/18 bg-white p-2 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:h-24 sm:w-24 sm:p-3">
                 <img src={logoSrc} alt="TRASHURE logo" className="h-full w-full object-contain" />
               </div>
 
@@ -114,10 +114,10 @@ function App() {
                   <span>Demo Video</span>
                   <span>Drive preview</span>
                 </div>
-                <div className="relative bg-[#0a402b] p-2.5 sm:p-5">
+                <div className="relative bg-[#0a402b] p-2 sm:p-5">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
-                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] h-[280px] sm:h-[420px]">
+                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] h-[360px] sm:h-[420px] lg:h-[460px]">
                       <iframe
                         className="h-full w-full border-0"
                         src={demoVideoEmbedUrl}
@@ -126,11 +126,19 @@ function App() {
                         allowFullScreen
                       />
                     </div>
-                    <div className="mt-3 sm:mt-4">
+                    <div className="mt-3 flex flex-col items-center gap-2 sm:mt-4">
                       <h2 className="text-lg font-extrabold tracking-tight sm:text-3xl">Watch the demo</h2>
-                      <p className="mt-1 max-w-xl text-sm leading-6 text-white/78 sm:text-base">
+                      <p className="max-w-xl text-sm leading-6 text-white/78 sm:text-base">
                         Play the video to see the workflow in action.
                       </p>
+                      <a
+                        href={demoVideoEmbedUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition hover:bg-white/20"
+                      >
+                        Open full video
+                      </a>
                     </div>
                   </div>
                 </div>
