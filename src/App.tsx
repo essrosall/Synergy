@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
-const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
+const demoVideoSrc = `https://drive.google.com/uc?export=download&id=${demoVideoId}`;
 
 const manuals = [
   {
@@ -46,38 +46,38 @@ function ManualIcon({ role }: { role: 'User' | 'Admin' }) {
 
 const gallery = [
   {
-    title: 'Gallery photo 1',
-    caption: 'Uploaded project image.',
+    title: '1 / 7',
+    caption: 'Uploaded project image showing the TRASHURE setup.',
     src: '/docs/received_955295687312213.jpeg',
   },
   {
-    title: 'Gallery photo 2',
-    caption: 'Uploaded project image.',
+    title: '2 / 7',
+    caption: 'Uploaded project image showing the TRASHURE setup.',
     src: '/docs/received_4344439145803316.jpeg',
   },
   {
-    title: 'Gallery photo 3',
-    caption: 'Uploaded project image.',
+    title: '3 / 7',
+    caption: 'Uploaded project image showing the TRASHURE setup.',
     src: '/docs/received_4304835203167581.jpeg',
   },
   {
-    title: 'Gallery photo 4',
-    caption: 'Uploaded project image.',
+    title: '4 / 7',
+    caption: 'Uploaded project image showing the TRASHURE setup.',
     src: '/docs/received_2149770069142276.jpeg',
   },
   {
-    title: 'Gallery photo 5',
-    caption: 'Uploaded project image.',
+    title: '5 / 7',
+    caption: 'Uploaded project image showing the TRASHURE setup.',
     src: '/docs/received_1867681503802119.jpeg',
   },
   {
-    title: 'Gallery photo 6',
-    caption: 'Uploaded project image.',
+    title: '6 / 7',
+    caption: 'Uploaded project image showing the TRASHURE setup.',
     src: '/docs/received_1691370218712437.jpeg',
   },
   {
-    title: 'Gallery photo 7',
-    caption: 'Uploaded project image.',
+    title: '7 / 7',
+    caption: 'Uploaded project image showing the TRASHURE setup.',
     src: '/docs/received_1508448360931812.jpeg',
   },
 ];
@@ -112,27 +112,31 @@ function App() {
               <div className="mx-auto mt-4 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#062e1f] shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:rounded-[2rem]">
                 <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/75 sm:px-5 sm:tracking-[0.28em]">
                   <span>Demo Video</span>
-                  <span>Drive preview</span>
+                  <span>Player</span>
                 </div>
                 <div className="relative bg-[#0a402b] p-2 sm:p-5">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
                     <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] h-[360px] sm:h-[420px] lg:h-[460px]">
-                      <iframe
-                        className="h-full w-full border-0"
-                        src={demoVideoEmbedUrl}
-                        title="TRASHURE demo video"
-                        allow="autoplay; encrypted-media; picture-in-picture"
-                        allowFullScreen
-                      />
+                      <video
+                        className="h-full w-full bg-black object-contain"
+                        controls
+                        playsInline
+                        preload="metadata"
+                        controlsList="nodownload noplaybackrate"
+                        src={demoVideoSrc}
+                      >
+                        <source src={demoVideoSrc} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
                     <div className="mt-3 flex flex-col items-center gap-2 sm:mt-4">
                       <h2 className="text-lg font-extrabold tracking-tight sm:text-3xl">Watch the demo</h2>
                       <p className="max-w-xl text-sm leading-6 text-white/78 sm:text-base">
-                        Play the video to see the workflow in action.
+                        A quick walkthrough of the workflow. The player keeps the controls under the frame so the video stays readable.
                       </p>
                       <a
-                        href={demoVideoEmbedUrl}
+                        href={demoVideoSrc}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition hover:bg-white/20"
@@ -148,13 +152,16 @@ function App() {
         </div>
 
         <section className="relative -mt-4 grid gap-3 pb-4 sm:-mt-8 sm:gap-5 sm:pb-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[1.5rem] border border-emerald-100 bg-white p-3 shadow-[0_18px_50px_rgba(9,44,39,0.08)] sm:rounded-[2rem] sm:p-6">
+          <div className="rounded-[1.5rem] border border-white/10 bg-[#062e1f] p-3 text-white shadow-[0_18px_50px_rgba(9,44,39,0.18)] sm:rounded-[2rem] sm:p-6">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-700 sm:tracking-[0.28em]">Downloads</p>
-                <h3 className="mt-1 text-xl font-black tracking-tight text-slate-950 sm:mt-2 sm:text-2xl">Manuals</h3>
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300 sm:tracking-[0.28em]">Downloads</p>
+                <h3 className="mt-1 text-xl font-black tracking-tight text-white sm:mt-2 sm:text-2xl">Manuals</h3>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-white/76">
+                  Keep the user and admin guides close at hand for setup, usage, and maintenance.
+                </p>
               </div>
-              <span className="rounded-full bg-yellow-100 px-2 py-1 text-[11px] font-bold text-yellow-700 sm:px-3 sm:text-xs">
+              <span className="rounded-full bg-yellow-300/15 px-2 py-1 text-[11px] font-bold text-yellow-200 sm:px-3 sm:text-xs">
                 PDF
               </span>
             </div>
@@ -164,7 +171,7 @@ function App() {
                 <a
                   key={manual.title}
                   href={manual.href}
-                  className="group rounded-[1.2rem] border border-emerald-100 bg-[#f7fbf8] p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-md sm:rounded-[1.4rem] sm:p-4"
+                  className="group rounded-[1.2rem] border border-white/10 bg-white/6 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:shadow-md sm:rounded-[1.4rem] sm:p-4"
                 >
                   <div className="flex items-start gap-3 sm:items-center">
                     <div className={`flex h-11 w-11 items-center justify-center rounded-[1rem] bg-gradient-to-br ${manual.accent} shadow-md sm:h-12 sm:w-12 sm:rounded-[1.1rem]`}>
@@ -173,16 +180,16 @@ function App() {
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <div>
-                          <h4 className="font-bold tracking-tight text-slate-950">{manual.title}</h4>
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 sm:text-xs">
+                          <h4 className="font-bold tracking-tight text-white">{manual.title}</h4>
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-200 sm:text-xs">
                             {manual.role}
                           </p>
                         </div>
-                        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-700 transition group-hover:translate-x-0.5 sm:text-xs sm:tracking-[0.2em]">
+                        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-200 transition group-hover:translate-x-0.5 sm:text-xs sm:tracking-[0.2em]">
                           Download
                         </span>
                       </div>
-                      <p className="mt-1 text-sm leading-6 text-slate-600">{manual.description}</p>
+                      <p className="mt-1 text-sm leading-6 text-white/76">{manual.description}</p>
                     </div>
                   </div>
                 </a>
@@ -190,19 +197,22 @@ function App() {
             </div>
           </div>
 
-          <div className="rounded-[1.5rem] border border-emerald-100 bg-white p-3 shadow-[0_18px_50px_rgba(9,44,39,0.08)] sm:rounded-[2rem] sm:p-6">
+          <div className="rounded-[1.5rem] border border-white/10 bg-[#062e1f] p-3 text-white shadow-[0_18px_50px_rgba(9,44,39,0.18)] sm:rounded-[2rem] sm:p-6">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-700 sm:tracking-[0.28em]">Gallery</p>
-                <h3 className="mt-1 text-xl font-black tracking-tight text-slate-950 sm:mt-2 sm:text-2xl">Deployment photos</h3>
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300 sm:tracking-[0.28em]">Gallery</p>
+                <h3 className="mt-1 text-xl font-black tracking-tight text-white sm:mt-2 sm:text-2xl">Deployment photos</h3>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-white/76">
+                  Browse the uploaded photos to preview the setup and deployment details.
+                </p>
               </div>
-              <span className="rounded-full bg-yellow-50 px-2 py-1 text-[11px] font-bold text-yellow-800 sm:px-3 sm:text-xs">
+              <span className="rounded-full bg-yellow-300/15 px-2 py-1 text-[11px] font-bold text-yellow-200 sm:px-3 sm:text-xs">
                 Images
               </span>
             </div>
 
             <div className="mt-3 sm:mt-4">
-              <div className="overflow-hidden rounded-[1.2rem] border border-emerald-100 bg-[#f7fbf8] sm:rounded-[1.4rem]">
+              <div className="overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/6 sm:rounded-[1.4rem]">
                 <div className="relative">
                   <button
                     type="button"
@@ -227,14 +237,14 @@ function App() {
                     className="block w-full text-left"
                     aria-label={`Zoom image ${visibleSlide.title}`}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-black">
                       <img
                         src={visibleSlide.src}
                         alt={visibleSlide.title}
                         className="h-full w-full object-cover"
                         loading="lazy"
                       />
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/55 to-transparent p-3 text-left text-white">
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/70 to-transparent p-3 text-left text-white">
                         <p className="text-sm font-semibold">Tap to zoom</p>
                       </div>
                     </div>
@@ -243,8 +253,8 @@ function App() {
 
                 <div className="flex items-center justify-between gap-3 p-3 sm:gap-4 sm:p-4">
                   <div>
-                    <p className="font-bold tracking-tight text-slate-950">{visibleSlide.title}</p>
-                    <p className="mt-1 text-sm leading-6 text-slate-600">{visibleSlide.caption}</p>
+                    <p className="font-black tracking-tight text-white">{visibleSlide.title}</p>
+                    <p className="mt-1 text-sm leading-6 text-white/76">{visibleSlide.caption}</p>
                   </div>
                   <div className="flex gap-2">
                     {gallery.map((_, index) => (
@@ -252,7 +262,7 @@ function App() {
                         key={index}
                         type="button"
                         onClick={() => setActiveSlide(index)}
-                        className={`h-2.5 rounded-full transition ${index === activeSlide ? 'w-7 bg-emerald-700' : 'w-2.5 bg-slate-300'}`}
+                        className={`h-2.5 rounded-full transition ${index === activeSlide ? 'w-7 bg-emerald-300' : 'w-2.5 bg-white/30'}`}
                         aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
