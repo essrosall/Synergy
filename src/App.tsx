@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
-const demoVideoSrc = `https://drive.usercontent.google.com/download?id=${demoVideoId}&export=download&confirm=t`;
 const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
 
 const manuals = [
@@ -120,23 +119,19 @@ function App() {
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
                     <div className="overflow-hidden rounded-xl border border-white/10 bg-[#041d13] shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
                       <div className="aspect-video w-full">
-                        <video
-                          className="h-full w-full bg-[#041d13] object-contain"
-                          controls
-                          playsInline
-                          preload="metadata"
-                          controlsList="nodownload noplaybackrate"
-                          disablePictureInPicture
-                        >
-                          <source src={demoVideoSrc} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
+                        <iframe
+                          className="h-full w-full border-0 bg-[#041d13]"
+                          src={demoVideoEmbedUrl}
+                          title="TRASHURE demo video"
+                          allow="autoplay; encrypted-media; picture-in-picture"
+                          allowFullScreen
+                        />
                       </div>
                     </div>
                     <div className="mt-3 flex flex-col items-center gap-2 sm:mt-4">
                       <h2 className="text-lg font-semibold tracking-tight sm:text-3xl">Watch the demo</h2>
                       <p className="max-w-xl text-sm leading-6 text-white/78 sm:text-base">
-                        A quick walkthrough of the workflow with native play and pause controls.
+                        A quick walkthrough of the workflow. The player stays in page and supports fullscreen on mobile.
                       </p>
                     </div>
                   </div>
