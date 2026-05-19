@@ -50,7 +50,7 @@ function App() {
         <div className="absolute inset-0 opacity-8 [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:120px_120px]" />
 
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b4a32] text-white shadow-[0_28px_80px_rgba(0,0,0,0.24)] sm:rounded-[2.2rem]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.06),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_28%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.06),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_28%)]" />
 
           <div className="relative px-3 py-4 sm:px-8 sm:py-8">
             <div className="mx-auto max-w-3xl text-center">
@@ -71,9 +71,9 @@ function App() {
                   <span>Drive preview</span>
                 </div>
                 <div className="relative bg-[#0a402b] p-3 sm:p-5">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
-                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] aspect-video">
+                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] h-[320px] sm:h-[420px]">
                       <iframe
                         className="h-full w-full border-0"
                         src={demoVideoEmbedUrl}
@@ -82,12 +82,12 @@ function App() {
                         allowFullScreen
                       />
                     </div>
-                    <h2 className="mt-3 text-xl font-extrabold tracking-tight sm:mt-4 sm:text-3xl">
-                      Watch the demo
-                    </h2>
-                    <p className="mt-1 max-w-xl text-sm leading-6 text-white/78 sm:mt-2 sm:text-base">
-                      Play the video to see the workflow in action.
-                    </p>
+                    <div className="mt-3 sm:mt-4">
+                      <h2 className="text-xl font-extrabold tracking-tight sm:text-3xl">Watch the demo</h2>
+                      <p className="mt-1 max-w-xl text-sm leading-6 text-white/78 sm:text-base">
+                        Play the video to see the workflow in action.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
