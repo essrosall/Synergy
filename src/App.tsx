@@ -7,16 +7,18 @@ const manuals = [
   {
     title: 'User Manual',
     description: 'Step-by-step guide for regular users and QR scan flow.',
-    href: '/docs/user-manual.pdf',
+    href: '/docs/User%20ManualNEW.pdf',
     accent: 'from-emerald-500 to-lime-400',
   },
   {
     title: 'Admin Manual',
     description: 'Admin controls, management steps, and system configuration.',
-    href: '/docs/admin-manual.pdf',
+    href: '/docs/REVISED%20ADMIN%20MANUAL.pdf',
     accent: 'from-emerald-800 to-emerald-950',
   },
 ];
+
+const logoSrc = '/docs/GREEN%20LOGO%20LATEST%20COLOR%20(1).png';
 
 const gallery = [
   {
@@ -52,8 +54,8 @@ function App() {
 
           <div className="relative px-3 py-4 sm:px-8 sm:py-8">
             <div className="mx-auto max-w-3xl text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-[1.75rem] border border-white/18 bg-white/8 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:h-28 sm:w-28">
-                <span className="display-font text-4xl font-black tracking-[0.12em] text-white sm:text-6xl">DIN</span>
+              <div className="mx-auto flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/18 bg-white/8 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:h-28 sm:w-28">
+                <img src={logoSrc} alt="TRASHURE logo" className="h-full w-full object-cover" />
               </div>
 
               <h1 className="mt-5 text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
@@ -68,23 +70,25 @@ function App() {
                   <span>Demo Video</span>
                   <span>Drive preview</span>
                 </div>
-                <div className="relative bg-[linear-gradient(180deg,_rgba(8,72,49,0.96),_rgba(10,92,60,0.96))] p-3 sm:aspect-video sm:p-5">
+                <div className="relative bg-[linear-gradient(180deg,_rgba(8,72,49,0.96),_rgba(10,92,60,0.96))] p-3 sm:p-5">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.14),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(214,183,74,0.16),_transparent_30%)]" />
-                  <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center text-center text-white">
+                  <div className="relative mx-auto w-full max-w-3xl text-center text-white">
+                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] aspect-[9/16] sm:aspect-video">
                       <iframe
-                        className="h-[220px] w-full rounded-xl border-0 bg-black sm:h-[420px]"
+                        className="h-full w-full border-0"
                         src={demoVideoEmbedUrl}
                         title="TRASHURE demo video"
                         allow="autoplay; encrypted-media; picture-in-picture"
                         allowFullScreen
                       />
-                      <h2 className="mt-3 text-xl font-extrabold tracking-tight sm:mt-4 sm:text-3xl">
-                        Watch the demo
-                      </h2>
-                      <p className="mt-1 max-w-xl text-sm leading-6 text-white/78 sm:mt-2 sm:text-base">
-                        Play the video to see the workflow in action.
-                      </p>
                     </div>
+                    <h2 className="mt-3 text-xl font-extrabold tracking-tight sm:mt-4 sm:text-3xl">
+                      Watch the demo
+                    </h2>
+                    <p className="mt-1 max-w-xl text-sm leading-6 text-white/78 sm:mt-2 sm:text-base">
+                      Play the video to see the workflow in action.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
