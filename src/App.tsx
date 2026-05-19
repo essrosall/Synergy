@@ -86,7 +86,6 @@ const gallery = [
 function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [zoomedSlide, setZoomedSlide] = useState<number | null>(null);
-  const [videoUnavailable, setVideoUnavailable] = useState(false);
 
   const visibleSlide = useMemo(() => gallery[activeSlide], [activeSlide]);
 
@@ -121,32 +120,17 @@ function App() {
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
                     <div className="overflow-hidden rounded-xl border border-white/10 bg-[#041d13] shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
                       <div className="aspect-video w-full">
-                        {videoUnavailable ? (
-                          <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-[#041d13] px-4 text-center">
-                            <p className="text-sm text-white/85 sm:text-base">Video is unavailable in this view.</p>
-                            <a
-                              href={demoVideoEmbedUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center justify-center rounded-full border border-emerald-500/45 bg-emerald-900/35 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-emerald-100 transition hover:bg-emerald-800/45"
-                            >
-                              Open video in new tab
-                            </a>
-                          </div>
-                        ) : (
-                          <video
-                            className="h-full w-full bg-[#041d13] object-contain"
-                            controls
-                            playsInline
-                            preload="auto"
-                            controlsList="nodownload noplaybackrate"
-                            disablePictureInPicture
-                            onError={() => setVideoUnavailable(true)}
-                          >
-                            <source src={demoVideoSrc} type="video/mp4" />
-                            Your browser does not support the video tag.
-                          </video>
-                        )}
+                        <video
+                          className="h-full w-full bg-[#041d13] object-contain"
+                          controls
+                          playsInline
+                          preload="metadata"
+                          controlsList="nodownload noplaybackrate"
+                          disablePictureInPicture
+                        >
+                          <source src={demoVideoSrc} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
                       </div>
                     </div>
                     <div className="mt-3 flex flex-col items-center gap-2 sm:mt-4">
@@ -154,14 +138,6 @@ function App() {
                       <p className="max-w-xl text-sm leading-6 text-white/78 sm:text-base">
                         A quick walkthrough of the workflow with native play and pause controls.
                       </p>
-                      <a
-                        href={videoUnavailable ? demoVideoEmbedUrl : demoVideoSrc}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center justify-center rounded-full border border-emerald-500/45 bg-emerald-900/35 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-emerald-100 transition hover:bg-emerald-800/45"
-                      >
-                        Open full video
-                      </a>
                     </div>
                   </div>
                 </div>
