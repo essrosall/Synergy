@@ -1,5 +1,8 @@
 import { useMemo, useState } from 'react';
 
+const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
+const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
+
 const manuals = [
   {
     title: 'User Manual',
@@ -77,18 +80,17 @@ function App() {
                       <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em]">
                         First view
                       </span>
-                      <span className="text-xs font-medium">Replace with your actual video file</span>
+                      <span className="text-xs font-medium">Tap play to open the Drive preview</span>
                     </div>
 
                     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center text-center text-white">
-                      <video
-                        controls
-                        playsInline
-                        className="h-full w-full rounded-xl object-cover"
-                        src="https://drive.google.com/uc?export=view&id=1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx"
-                      >
-                        Your browser does not support the video tag.
-                      </video>
+                      <iframe
+                        className="h-[260px] w-full rounded-xl border-0 bg-black sm:h-[420px]"
+                        src={demoVideoEmbedUrl}
+                        title="TRASHURE demo video"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                      />
                       <h2 className="mt-4 text-2xl font-extrabold tracking-tight sm:text-4xl">
                         Demo video
                       </h2>
