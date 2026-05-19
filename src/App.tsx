@@ -8,13 +8,13 @@ const manuals = [
     title: 'User Manual',
     description: 'Step-by-step guide for regular users and QR scan flow.',
     href: '/docs/user-manual.pdf',
-    accent: 'from-emerald-500 to-teal-700',
+    accent: 'from-emerald-500 to-lime-400',
   },
   {
     title: 'Admin Manual',
     description: 'Admin controls, management steps, and system configuration.',
     href: '/docs/admin-manual.pdf',
-    accent: 'from-emerald-900 to-slate-950',
+    accent: 'from-emerald-800 to-emerald-950',
   },
 ];
 
@@ -22,17 +22,17 @@ const gallery = [
   {
     title: 'Banner setup',
     caption: 'Printed tarpaulin and QR placement during installation.',
-    tone: 'from-emerald-900 via-emerald-700 to-teal-600',
+    tone: 'from-emerald-900 via-emerald-700 to-lime-500',
   },
   {
     title: 'System check',
     caption: 'Hardware, scanning, and verification during deployment.',
-    tone: 'from-teal-900 via-teal-700 to-emerald-700',
+    tone: 'from-emerald-800 via-emerald-600 to-emerald-500',
   },
   {
     title: 'Final handoff',
     caption: 'Completed deployment and documentation for submission.',
-    tone: 'from-amber-500 via-amber-600 to-orange-600',
+    tone: 'from-lime-300 via-yellow-300 to-emerald-400',
   },
 ];
 
@@ -43,17 +43,17 @@ function App() {
   const visibleSlide = useMemo(() => gallery[activeSlide], [activeSlide]);
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(180deg,_#0a5d53_0%,_#0c6a60_38%,_#f2f7f4_38%,_#f2f7f4_100%)] text-slate-900">
+    <main className="min-h-screen bg-[linear-gradient(180deg,_#0b5a3f_0%,_#0f6a47_38%,_#eef6ef_38%,_#eef6ef_100%)] text-slate-900">
       <section className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-3 py-3 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:120px_120px]" />
+        <div className="absolute inset-0 opacity-14 [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:120px_120px]" />
 
-        <div className="relative overflow-hidden rounded-[2.2rem] border border-white/15 bg-white/6 text-white shadow-[0_30px_90px_rgba(0,0,0,0.28)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(210,165,59,0.18),_transparent_28%)]" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-white/5 text-white shadow-[0_30px_90px_rgba(0,0,0,0.24)] sm:rounded-[2.2rem]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(214,183,74,0.18),_transparent_28%)]" />
 
           <div className="relative px-3 py-4 sm:px-8 sm:py-8">
             <div className="mx-auto max-w-3xl text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-[1.75rem] border border-white/20 glass shadow-[0_18px_40px_rgba(0,0,0,0.18)] sm:h-28 sm:w-28">
-                <span className="display-font text-4xl font-black text-white sm:text-6xl">TR</span>
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-[1.75rem] border border-white/18 bg-white/8 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:h-28 sm:w-28">
+                <span className="display-font text-4xl font-black tracking-[0.12em] text-white sm:text-6xl">DIN</span>
               </div>
 
               <h1 className="mt-5 text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
@@ -63,13 +63,13 @@ function App() {
                 A simple waste verification demo with quick access to the video, manuals, and gallery.
               </p>
 
-              <div className="mx-auto mt-5 overflow-hidden rounded-[1.5rem] border border-white/20 bg-slate-950/45 shadow-[0_24px_60px_rgba(0,0,0,0.25)] sm:mt-8 sm:rounded-[2rem]">
+              <div className="mx-auto mt-5 overflow-hidden rounded-[1.5rem] border border-emerald-100/20 bg-emerald-950/55 shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:rounded-[2rem]">
                 <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/75 sm:px-5 sm:tracking-[0.28em]">
                   <span>Demo Video</span>
                   <span>Drive preview</span>
                 </div>
-                <div className="relative bg-[linear-gradient(180deg,_rgba(6,45,39,0.92),_rgba(7,71,64,0.96))] p-3 sm:aspect-video sm:p-5">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.14),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(210,165,59,0.16),_transparent_30%)]" />
+                <div className="relative bg-[linear-gradient(180deg,_rgba(8,72,49,0.96),_rgba(10,92,60,0.96))] p-3 sm:aspect-video sm:p-5">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.14),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(214,183,74,0.16),_transparent_30%)]" />
                   <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center text-center text-white">
                       <iframe
                         className="h-[220px] w-full rounded-xl border-0 bg-black sm:h-[420px]"
@@ -92,13 +92,13 @@ function App() {
         </div>
 
         <section className="relative -mt-6 grid gap-3 pb-3 sm:-mt-8 sm:gap-5 sm:pb-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-3 shadow-[0_18px_50px_rgba(9,44,39,0.08)] sm:rounded-[2rem] sm:p-6">
+          <div className="rounded-[1.5rem] border border-emerald-100 bg-white p-3 shadow-[0_18px_50px_rgba(9,44,39,0.08)] sm:rounded-[2rem] sm:p-6">
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-700 sm:tracking-[0.28em]">Downloads</p>
                 <h3 className="mt-1 text-xl font-black tracking-tight text-slate-950 sm:mt-2 sm:text-2xl">Manuals</h3>
               </div>
-              <span className="rounded-full bg-amber-100 px-2 py-1 text-[11px] font-bold text-amber-700 sm:px-3 sm:text-xs">
+              <span className="rounded-full bg-yellow-100 px-2 py-1 text-[11px] font-bold text-yellow-700 sm:px-3 sm:text-xs">
                 PDF
               </span>
             </div>
@@ -108,7 +108,7 @@ function App() {
                 <a
                   key={manual.title}
                   href={manual.href}
-                  className="group rounded-[1.2rem] border border-slate-200 bg-[#f8fbfa] p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-md sm:rounded-[1.4rem] sm:p-4"
+                  className="group rounded-[1.2rem] border border-emerald-100 bg-[#f7fbf8] p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-md sm:rounded-[1.4rem] sm:p-4"
                 >
                   <div className="flex items-center gap-3">
                     <div className={`h-11 w-11 rounded-[1rem] bg-gradient-to-br ${manual.accent} shadow-md sm:h-12 sm:w-12 sm:rounded-[1.1rem]`} />
@@ -127,19 +127,19 @@ function App() {
             </div>
           </div>
 
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-3 shadow-[0_18px_50px_rgba(9,44,39,0.08)] sm:rounded-[2rem] sm:p-6">
+          <div className="rounded-[1.5rem] border border-emerald-100 bg-white p-3 shadow-[0_18px_50px_rgba(9,44,39,0.08)] sm:rounded-[2rem] sm:p-6">
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-700 sm:tracking-[0.28em]">Gallery</p>
                 <h3 className="mt-1 text-xl font-black tracking-tight text-slate-950 sm:mt-2 sm:text-2xl">Deployment photos</h3>
               </div>
-              <span className="rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-bold text-emerald-800 sm:px-3 sm:text-xs">
+              <span className="rounded-full bg-yellow-50 px-2 py-1 text-[11px] font-bold text-yellow-800 sm:px-3 sm:text-xs">
                 Slider
               </span>
             </div>
 
             <div className="mt-3 sm:mt-4">
-              <div className="overflow-hidden rounded-[1.2rem] border border-slate-200 bg-[#f8fbfa] sm:rounded-[1.4rem]">
+              <div className="overflow-hidden rounded-[1.2rem] border border-emerald-100 bg-[#f7fbf8] sm:rounded-[1.4rem]">
                 <div className="relative">
                   <button
                     type="button"
