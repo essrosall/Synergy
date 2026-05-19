@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
-const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
+const demoVideoSrc = `https://drive.google.com/uc?export=download&id=${demoVideoId}`;
 
 const manuals = [
   {
@@ -45,17 +45,17 @@ function App() {
   const visibleSlide = useMemo(() => gallery[activeSlide], [activeSlide]);
 
   return (
-    <main className="min-h-screen bg-[linear-gradient(180deg,_#0b5a3f_0%,_#0f6a47_38%,_#eef6ef_38%,_#eef6ef_100%)] text-slate-900">
+    <main className="min-h-screen bg-[#063d29] text-slate-900">
       <section className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-3 py-3 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 opacity-14 [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:120px_120px]" />
+        <div className="absolute inset-0 opacity-8 [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:120px_120px]" />
 
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-white/5 text-white shadow-[0_30px_90px_rgba(0,0,0,0.24)] sm:rounded-[2.2rem]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(214,183,74,0.18),_transparent_28%)]" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b4a32] text-white shadow-[0_28px_80px_rgba(0,0,0,0.24)] sm:rounded-[2.2rem]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.06),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_28%)]" />
 
           <div className="relative px-3 py-4 sm:px-8 sm:py-8">
             <div className="mx-auto max-w-3xl text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/18 bg-white/8 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:h-28 sm:w-28">
-                <img src={logoSrc} alt="TRASHURE logo" className="h-full w-full object-cover" />
+              <div className="mx-auto flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/18 bg-white p-2 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:h-28 sm:w-28 sm:p-3">
+                <img src={logoSrc} alt="TRASHURE logo" className="h-full w-full object-contain" />
               </div>
 
               <h1 className="mt-5 text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
@@ -65,22 +65,24 @@ function App() {
                 A simple waste verification demo with quick access to the video, manuals, and gallery.
               </p>
 
-              <div className="mx-auto mt-5 overflow-hidden rounded-[1.5rem] border border-emerald-100/20 bg-emerald-950/55 shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:rounded-[2rem]">
+              <div className="mx-auto mt-5 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#062e1f] shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:rounded-[2rem]">
                 <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/75 sm:px-5 sm:tracking-[0.28em]">
                   <span>Demo Video</span>
-                  <span>Drive preview</span>
+                  <span>Native player</span>
                 </div>
-                <div className="relative bg-[linear-gradient(180deg,_rgba(8,72,49,0.96),_rgba(10,92,60,0.96))] p-3 sm:p-5">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.14),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(214,183,74,0.16),_transparent_30%)]" />
+                <div className="relative bg-[#0a402b] p-3 sm:p-5">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
-                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] aspect-[9/16] sm:aspect-video">
-                      <iframe
-                        className="h-full w-full border-0"
-                        src={demoVideoEmbedUrl}
-                        title="TRASHURE demo video"
-                        allow="autoplay; encrypted-media; picture-in-picture"
-                        allowFullScreen
-                      />
+                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
+                      <video
+                        className="aspect-video w-full"
+                        src={demoVideoSrc}
+                        controls
+                        playsInline
+                        preload="metadata"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
                     <h2 className="mt-3 text-xl font-extrabold tracking-tight sm:mt-4 sm:text-3xl">
                       Watch the demo
