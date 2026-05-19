@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
-const demoVideoSrc = `https://drive.google.com/uc?export=download&id=${demoVideoId}`;
+const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
 
 const manuals = [
   {
@@ -68,21 +68,19 @@ function App() {
               <div className="mx-auto mt-5 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#062e1f] shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:rounded-[2rem]">
                 <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/75 sm:px-5 sm:tracking-[0.28em]">
                   <span>Demo Video</span>
-                  <span>Native player</span>
+                  <span>Drive preview</span>
                 </div>
                 <div className="relative bg-[#0a402b] p-3 sm:p-5">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
-                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
-                      <video
-                        className="aspect-video w-full"
-                        src={demoVideoSrc}
-                        controls
-                        playsInline
-                        preload="metadata"
-                      >
-                        Your browser does not support the video tag.
-                      </video>
+                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] aspect-video">
+                      <iframe
+                        className="h-full w-full border-0"
+                        src={demoVideoEmbedUrl}
+                        title="TRASHURE demo video"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
                     <h2 className="mt-3 text-xl font-extrabold tracking-tight sm:mt-4 sm:text-3xl">
                       Watch the demo
