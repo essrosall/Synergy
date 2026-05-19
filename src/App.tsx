@@ -22,19 +22,39 @@ const logoSrc = '/docs/GREEN%20LOGO%20LATEST%20COLOR%20(1).png';
 
 const gallery = [
   {
-    title: 'Banner setup',
-    caption: 'Printed tarpaulin and QR placement during installation.',
-    tone: 'from-emerald-900 via-emerald-700 to-lime-500',
+    title: 'Gallery photo 1',
+    caption: 'Uploaded project image.',
+    src: '/docs/received_955295687312213.jpeg',
   },
   {
-    title: 'System check',
-    caption: 'Hardware, scanning, and verification during deployment.',
-    tone: 'from-emerald-800 via-emerald-600 to-emerald-500',
+    title: 'Gallery photo 2',
+    caption: 'Uploaded project image.',
+    src: '/docs/received_4344439145803316.jpeg',
   },
   {
-    title: 'Final handoff',
-    caption: 'Completed deployment and documentation for submission.',
-    tone: 'from-lime-300 via-yellow-300 to-emerald-400',
+    title: 'Gallery photo 3',
+    caption: 'Uploaded project image.',
+    src: '/docs/received_4304835203167581.jpeg',
+  },
+  {
+    title: 'Gallery photo 4',
+    caption: 'Uploaded project image.',
+    src: '/docs/received_2149770069142276.jpeg',
+  },
+  {
+    title: 'Gallery photo 5',
+    caption: 'Uploaded project image.',
+    src: '/docs/received_1867681503802119.jpeg',
+  },
+  {
+    title: 'Gallery photo 6',
+    caption: 'Uploaded project image.',
+    src: '/docs/received_1691370218712437.jpeg',
+  },
+  {
+    title: 'Gallery photo 7',
+    caption: 'Uploaded project image.',
+    src: '/docs/received_1508448360931812.jpeg',
   },
 ];
 
@@ -138,7 +158,7 @@ function App() {
                 <h3 className="mt-1 text-xl font-black tracking-tight text-slate-950 sm:mt-2 sm:text-2xl">Deployment photos</h3>
               </div>
               <span className="rounded-full bg-yellow-50 px-2 py-1 text-[11px] font-bold text-yellow-800 sm:px-3 sm:text-xs">
-                Slider
+                Images
               </span>
             </div>
 
@@ -168,12 +188,15 @@ function App() {
                     className="block w-full text-left"
                     aria-label={`Zoom image ${visibleSlide.title}`}
                   >
-                    <div className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${visibleSlide.tone}`}>
-                      <div className="text-center text-white">
-                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-[1rem] border border-white/20 bg-white/10 text-xs font-black uppercase tracking-[0.22em] sm:h-16 sm:w-16 sm:rounded-[1.1rem] sm:tracking-[0.24em]">
-                          {activeSlide + 1}
-                        </div>
-                        <p className="mt-2 text-sm font-semibold sm:mt-3">Tap to zoom</p>
+                    <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                      <img
+                        src={visibleSlide.src}
+                        alt={visibleSlide.title}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/55 to-transparent p-3 text-left text-white">
+                        <p className="text-sm font-semibold">Tap to zoom</p>
                       </div>
                     </div>
                   </button>
@@ -218,13 +241,15 @@ function App() {
               onClick={() => setZoomedSlide(null)}
             />
             <div className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/15 bg-slate-900 shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
-              <div className={`aspect-[4/3] bg-gradient-to-br ${gallery[zoomedSlide].tone}`}>
-                <div className="flex h-full flex-col items-center justify-center text-white">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-[1.4rem] border border-white/20 bg-white/10 text-sm font-black uppercase tracking-[0.24em]">
-                    {zoomedSlide + 1}
-                  </div>
-                  <h4 className="mt-5 text-2xl font-black tracking-tight">{gallery[zoomedSlide].title}</h4>
-                  <p className="mt-2 max-w-lg px-6 text-center text-sm leading-6 text-white/80">
+              <div className="bg-black p-3 sm:p-4">
+                <img
+                  src={gallery[zoomedSlide].src}
+                  alt={gallery[zoomedSlide].title}
+                  className="max-h-[82vh] w-full rounded-[1.25rem] object-contain"
+                />
+                <div className="px-1 pb-1 pt-4 text-center text-white">
+                  <h4 className="text-2xl font-black tracking-tight">{gallery[zoomedSlide].title}</h4>
+                  <p className="mt-2 max-w-lg mx-auto text-sm leading-6 text-white/80">
                     {gallery[zoomedSlide].caption}
                   </p>
                 </div>
