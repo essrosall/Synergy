@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
 const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
@@ -85,6 +85,15 @@ const gallery = [
 function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [zoomedSlide, setZoomedSlide] = useState<number | null>(null);
+  const videoRef = useRef<HTMLDivElement | null>(null);
+
+  function handleFullscreen() {
+    const el: any = videoRef.current;
+    if (!el) return;
+    if (el.requestFullscreen) return el.requestFullscreen();
+    if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+    if (el.msRequestFullscreen) return el.msRequestFullscreen();
+  }
 
   const visibleSlide = useMemo(() => gallery[activeSlide], [activeSlide]);
 
@@ -117,7 +126,15 @@ function App() {
                 <div className="relative bg-[#062e1f] p-2 sm:p-5">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-5xl text-center text-white">
-                    <div className="overflow-hidden rounded-xl border border-white/10 bg-[#041d13] shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
+                    <div ref={videoRef} className="relative overflow-hidden rounded-xl border border-white/10 bg-[#041d13] shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
+                      <button
+                        type="button"
+                        onClick={handleFullscreen}
+                        className="absolute right-3 top-3 z-20 rounded-md bg-black/30 px-3 py-1 text-sm font-medium text-white backdrop-blur transition hover:bg-black/50"
+                        aria-label="Enter fullscreen"
+                      >
+                        Fullscreen
+                      </button>
                       <div className="w-full h-[260px] sm:h-[420px] md:h-[520px] lg:h-[640px]">
                         <iframe
                           className="h-full w-full border-0 bg-[#041d13]"
