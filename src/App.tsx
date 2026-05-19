@@ -109,7 +109,7 @@ function App() {
                 A simple waste verification demo with quick access to the video, manuals, and gallery.
               </p>
 
-              <div className="mx-auto mt-4 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#062e1f] shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:rounded-[2rem]">
+              <div className="mx-auto mt-4 mb-8 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#062e1f] shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:mb-12 sm:rounded-[2rem]">
                 <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white/75 sm:px-5 sm:tracking-[0.24em]">
                   <span>Demo Video</span>
                   <span>Player</span>
