@@ -116,14 +116,14 @@ function App() {
                 </div>
                 <div className="relative bg-[#062e1f] p-2 sm:p-5">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
-                  <div className="relative mx-auto w-full max-w-3xl text-center text-white">
+                  <div className="relative mx-auto w-full max-w-5xl text-center text-white">
                     <div className="overflow-hidden rounded-xl border border-white/10 bg-[#041d13] shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
-                      <div className="aspect-video w-full">
+                      <div className="w-full h-[260px] sm:h-[420px] md:h-[520px] lg:h-[640px]">
                         <iframe
                           className="h-full w-full border-0 bg-[#041d13]"
                           src={demoVideoEmbedUrl}
                           title="TRASHURE demo video"
-                          allow="autoplay; encrypted-media; picture-in-picture"
+                          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                           allowFullScreen
                         />
                       </div>
