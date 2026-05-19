@@ -1,21 +1,21 @@
 import { useMemo, useState } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
-const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
+const demoVideoSrc = `https://drive.usercontent.google.com/download?id=${demoVideoId}&export=download&confirm=t`;
 
 const manuals = [
   {
     title: 'User Manual',
     description: 'For kiosk users who scan, earn points, and follow the kiosk flow.',
     href: '/docs/User%20ManualNEW.pdf',
-    accent: 'from-emerald-500 to-lime-400',
+    accent: 'from-emerald-600 to-emerald-700',
     role: 'User',
   },
   {
     title: 'Admin Manual',
     description: 'For troubleshooting, maintenance, and machine administration.',
     href: '/docs/REVISED%20ADMIN%20MANUAL.pdf',
-    accent: 'from-emerald-800 to-emerald-950',
+    accent: 'from-emerald-700 to-emerald-900',
     role: 'Admin',
   },
 ];
@@ -102,7 +102,7 @@ function App() {
                 <img src={logoSrc} alt="TRASHURE logo" className="h-full w-full object-contain" />
               </div>
 
-              <h1 className="mt-4 text-3xl font-extrabold leading-[0.95] tracking-tight sm:mt-5 sm:text-6xl lg:text-7xl">
+              <h1 className="mt-4 text-3xl font-bold leading-[0.95] tracking-tight sm:mt-5 sm:text-6xl lg:text-7xl">
                 TRASHURE
               </h1>
               <p className="mx-auto mt-2 max-w-2xl text-sm font-medium leading-6 text-white/88 sm:mt-3 sm:text-lg sm:leading-7">
@@ -110,32 +110,36 @@ function App() {
               </p>
 
               <div className="mx-auto mt-4 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#062e1f] shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:mt-8 sm:rounded-[2rem]">
-                <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/75 sm:px-5 sm:tracking-[0.28em]">
+                <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white/75 sm:px-5 sm:tracking-[0.24em]">
                   <span>Demo Video</span>
                   <span>Player</span>
                 </div>
                 <div className="relative bg-[#0a402b] p-2 sm:p-5">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
-                    <div className="overflow-hidden rounded-xl border border-white/10 bg-black shadow-[0_16px_40px_rgba(0,0,0,0.2)] h-[360px] sm:h-[420px] lg:h-[460px]">
-                      <iframe
-                        className="h-full w-full border-0 bg-black"
-                        src={demoVideoEmbedUrl}
-                        title="TRASHURE demo video"
-                        allow="autoplay; encrypted-media; picture-in-picture"
-                        allowFullScreen
-                      />
+                    <div className="overflow-hidden rounded-xl border border-white/10 bg-[#041d13] shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
+                      <div className="aspect-video w-full">
+                        <video
+                          className="h-full w-full bg-[#041d13] object-contain"
+                          controls
+                          playsInline
+                          preload="metadata"
+                        >
+                          <source src={demoVideoSrc} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
                     </div>
                     <div className="mt-3 flex flex-col items-center gap-2 sm:mt-4">
                       <h2 className="text-lg font-semibold tracking-tight sm:text-3xl">Watch the demo</h2>
                       <p className="max-w-xl text-sm leading-6 text-white/78 sm:text-base">
-                        A quick walkthrough of the workflow. The preview loads reliably in the browser and keeps the controls inside the player.
+                        A quick walkthrough of the workflow with native play and pause controls.
                       </p>
                       <a
-                        href={demoVideoEmbedUrl}
+                        href={demoVideoSrc}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition hover:bg-white/20"
+                        className="inline-flex items-center justify-center rounded-full border border-emerald-500/45 bg-emerald-900/35 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-emerald-100 transition hover:bg-emerald-800/45"
                       >
                         Open full video
                       </a>
@@ -151,13 +155,13 @@ function App() {
           <div className="rounded-[1.5rem] border border-white/10 bg-[#062e1f] p-3 text-white shadow-[0_18px_50px_rgba(9,44,39,0.18)] sm:rounded-[2rem] sm:p-6">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300 sm:tracking-[0.28em]">Downloads</p>
-                <h3 className="mt-1 text-xl font-bold tracking-tight text-white sm:mt-2 sm:text-2xl">Manuals</h3>
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-emerald-200 sm:tracking-[0.24em]">Downloads</p>
+                <h3 className="mt-1 text-xl font-semibold tracking-tight text-white sm:mt-2 sm:text-2xl">Manuals</h3>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-white/76">
                   Keep the user and admin guides close at hand for setup, usage, and maintenance.
                 </p>
               </div>
-              <span className="rounded-full bg-yellow-300/15 px-2 py-1 text-[11px] font-bold text-yellow-200 sm:px-3 sm:text-xs">
+              <span className="rounded-full border border-emerald-500/40 bg-emerald-900/35 px-2 py-1 text-[11px] font-medium text-emerald-100 sm:px-3 sm:text-xs">
                 PDF
               </span>
             </div>
@@ -167,7 +171,7 @@ function App() {
                 <a
                   key={manual.title}
                   href={manual.href}
-                  className="group rounded-[1.2rem] border border-white/10 bg-white/6 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:shadow-md sm:rounded-[1.4rem] sm:p-4"
+                  className="group rounded-[1.2rem] border border-emerald-500/20 bg-emerald-950/30 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-400/35 hover:bg-emerald-900/35 hover:shadow-md sm:rounded-[1.4rem] sm:p-4"
                 >
                   <div className="flex items-start gap-3 sm:items-center">
                     <div className={`flex h-11 w-11 items-center justify-center rounded-[1rem] bg-gradient-to-br ${manual.accent} shadow-md sm:h-12 sm:w-12 sm:rounded-[1.1rem]`}>
@@ -177,11 +181,11 @@ function App() {
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <div>
                           <h4 className="font-semibold tracking-tight text-white">{manual.title}</h4>
-                          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-emerald-200 sm:text-xs">
+                          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-emerald-200 sm:text-xs">
                             {manual.role}
                           </p>
                         </div>
-                        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-200 transition group-hover:translate-x-0.5 sm:text-xs sm:tracking-[0.2em]">
+                        <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-emerald-200 transition group-hover:translate-x-0.5 sm:text-xs sm:tracking-[0.18em]">
                           Download
                         </span>
                       </div>
@@ -196,19 +200,19 @@ function App() {
           <div className="rounded-[1.5rem] border border-white/10 bg-[#062e1f] p-3 text-white shadow-[0_18px_50px_rgba(9,44,39,0.18)] sm:rounded-[2rem] sm:p-6">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-emerald-300 sm:tracking-[0.28em]">Gallery</p>
-                <h3 className="mt-1 text-xl font-bold tracking-tight text-white sm:mt-2 sm:text-2xl">Deployment photos</h3>
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-emerald-200 sm:tracking-[0.24em]">Gallery</p>
+                <h3 className="mt-1 text-xl font-semibold tracking-tight text-white sm:mt-2 sm:text-2xl">Deployment photos</h3>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-white/76">
                   Browse the uploaded photos to preview the setup and deployment details.
                 </p>
               </div>
-              <span className="rounded-full bg-yellow-300/15 px-2 py-1 text-[11px] font-bold text-yellow-200 sm:px-3 sm:text-xs">
+              <span className="rounded-full border border-emerald-500/40 bg-emerald-900/35 px-2 py-1 text-[11px] font-medium text-emerald-100 sm:px-3 sm:text-xs">
                 Images
               </span>
             </div>
 
             <div className="mt-3 sm:mt-4">
-              <div className="overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/6 sm:rounded-[1.4rem]">
+              <div className="overflow-hidden rounded-[1.2rem] border border-emerald-500/20 bg-emerald-950/30 sm:rounded-[1.4rem]">
                 <div className="relative">
                   <button
                     type="button"
@@ -249,7 +253,7 @@ function App() {
 
                 <div className="flex items-center justify-between gap-3 p-3 sm:gap-4 sm:p-4">
                   <div>
-                    <p className="font-semibold tracking-tight text-white">{visibleSlide.title}</p>
+                    <p className="font-medium tracking-tight text-white">{visibleSlide.title}</p>
                     <p className="mt-1 text-sm leading-6 text-white/72">{visibleSlide.caption}</p>
                   </div>
                   <div className="flex gap-2">
@@ -269,7 +273,7 @@ function App() {
           </div>
         </section>
 
-        <footer className="mt-auto border-t border-white/10 px-2 py-4 text-center text-xs text-white/65 sm:px-4 sm:py-5">
+        <footer className="mt-auto border-t border-emerald-500/20 bg-[#062e1f] px-2 py-4 text-center text-xs text-white/65 sm:px-4 sm:py-5">
           <p className="font-medium tracking-[0.22em] uppercase text-white/55">TRASHURE</p>
           <p className="mt-2 text-[11px] leading-5 text-white/55 sm:text-xs">
             A simple waste verification demo for users and administrators.
