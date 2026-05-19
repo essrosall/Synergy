@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 
 const demoVideoId = '1pYa4NlczYYxY--vqK2lxMbW7e4jQslMx';
 const demoVideoSrc = `https://drive.usercontent.google.com/download?id=${demoVideoId}&export=download&confirm=t`;
+const demoVideoEmbedUrl = `https://drive.google.com/file/d/${demoVideoId}/preview`;
 
 const manuals = [
   {
@@ -85,6 +86,7 @@ const gallery = [
 function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [zoomedSlide, setZoomedSlide] = useState<number | null>(null);
+  const [useEmbedFallback, setUseEmbedFallback] = useState(false);
 
   const visibleSlide = useMemo(() => gallery[activeSlide], [activeSlide]);
 
@@ -93,7 +95,7 @@ function App() {
       <section className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-3 py-3 sm:px-6 lg:px-8">
         <div className="absolute inset-0 opacity-8 [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:120px_120px]" />
 
-        <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0b4a32] text-white shadow-[0_28px_80px_rgba(0,0,0,0.24)] sm:rounded-[2.2rem]">
+        <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#062e1f] text-white shadow-[0_28px_80px_rgba(0,0,0,0.24)] sm:rounded-[2.2rem]">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.06),_transparent_42%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_28%)]" />
 
           <div className="relative px-3 py-4 sm:px-8 sm:py-8">
@@ -114,20 +116,31 @@ function App() {
                   <span>Demo Video</span>
                   <span>Player</span>
                 </div>
-                <div className="relative bg-[#0a402b] p-2 sm:p-5">
+                <div className="relative bg-[#062e1f] p-2 sm:p-5">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_36%),radial-gradient(circle_at_bottom,_rgba(255,255,255,0.03),_transparent_30%)]" />
                   <div className="relative mx-auto w-full max-w-3xl text-center text-white">
                     <div className="overflow-hidden rounded-xl border border-white/10 bg-[#041d13] shadow-[0_16px_40px_rgba(0,0,0,0.2)]">
                       <div className="aspect-video w-full">
-                        <video
-                          className="h-full w-full bg-[#041d13] object-contain"
-                          controls
-                          playsInline
-                          preload="metadata"
-                        >
-                          <source src={demoVideoSrc} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
+                        {useEmbedFallback ? (
+                          <iframe
+                            className="h-full w-full border-0 bg-[#041d13]"
+                            src={demoVideoEmbedUrl}
+                            title="TRASHURE demo video"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            allowFullScreen
+                          />
+                        ) : (
+                          <video
+                            className="h-full w-full bg-[#041d13] object-contain"
+                            controls
+                            playsInline
+                            preload="metadata"
+                            onError={() => setUseEmbedFallback(true)}
+                          >
+                            <source src={demoVideoSrc} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        )}
                       </div>
                     </div>
                     <div className="mt-3 flex flex-col items-center gap-2 sm:mt-4">
@@ -136,7 +149,7 @@ function App() {
                         A quick walkthrough of the workflow with native play and pause controls.
                       </p>
                       <a
-                        href={demoVideoSrc}
+                        href={useEmbedFallback ? demoVideoEmbedUrl : demoVideoSrc}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center justify-center rounded-full border border-emerald-500/45 bg-emerald-900/35 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-emerald-100 transition hover:bg-emerald-800/45"
@@ -186,7 +199,7 @@ function App() {
                           </p>
                         </div>
                         <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-emerald-200 transition group-hover:translate-x-0.5 sm:text-xs sm:tracking-[0.18em]">
-                          Download
+                          View
                         </span>
                       </div>
                       <p className="mt-1 text-sm leading-6 text-white/72">{manual.description}</p>
